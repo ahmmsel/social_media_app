@@ -1,13 +1,85 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+@layer base {
+  body {
+    @apply primary-bg
+  }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components {
+  .primary-color {
+    @apply text-gray-400
+  }
+
+  .container {
+    @apply my-0 mx-auto w-11/12 max-w-2xl
+  }
+
+  .primary-bg {
+    @apply bg-neutral-900
+  }
+
+  .primary-icon {
+    @apply w-8 h-8
+  }
+
+  .primary-gradient {
+    @apply bg-gradient-to-r from-slate-800 to-slate-900
+  }
+
+  .secondary-gradient {
+    @apply bg-gradient-to-b from-pink-900 to-black
+  }
+
+  .primary-btn {
+    @apply bg-pink-800 !text-white uppercase font-semibold text-lg p-3 rounded-full shadow-xl w-full transition-all duration-300 hover:bg-pink-600 disabled:opacity-50
+  }
+
+  .normalize-text {
+    @apply text-xs md:text-base
+  }
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: gray transparent;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 20px;
+  border: 3px solid transparent;
+}
+
+.special-font {
+  font-family: 'Lobster', cursive;
+}
+
+.grid-container {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
 }
